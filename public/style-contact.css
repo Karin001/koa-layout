@@ -1,0 +1,339 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  height: 100px;
+  border-bottom: 1px solid black;
+}
+
+header .con {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .tool {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+header .tool .hint {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+}
+
+header .tool .hint .corner {
+  width: 0;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-color: transparent transparent black transparent;
+}
+
+header .tool .hint .moji {
+  min-width: 50px;
+  color: white;
+  height: 30px;
+  border-radius: 5px;
+  background-color: black;
+  line-height: 30px;
+  text-align: center;
+  font-size: 12px;
+}
+
+header .tool .icon {
+  z-index: 2;
+  position: relative;
+  margin: 0 5px;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid black;
+}
+
+header .tool .icon:hover {
+  cursor: pointer;
+}
+
+header .tool svg {
+  width: 20px;
+  color: blueviolet;
+}
+
+.avatar {
+  position: relative;
+  top: -50px;
+  text-align: center;
+}
+
+.avatar img {
+  width: 100px;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .thanks {
+  font-size: 2.1rem;
+  max-width: 800px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .content .thanks {
+    font-size: 1.7rem;
+  }
+}
+
+.content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 10px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.content form .fg {
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.content form .fg label {
+  margin-bottom: 10px;
+}
+
+.content form .fg input, .content form .fg textarea {
+  outline: none;
+  padding: 5px;
+  font-size: 1.6rem;
+  border: 1px solid #E6ECF8;
+  font-weight: 300;
+  border-radius: 5px;
+}
+
+.content form .fg-half {
+  width: calc(50% - 10px);
+}
+
+@media (max-width: 768px) {
+  .content form .fg-half {
+    width: 100%;
+  }
+}
+
+.content form .fg-half:nth-child(1) {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .content form .fg-half:nth-child(1) {
+    margin-right: 0;
+  }
+}
+
+.content form .fg-half:nth-child(2) {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .content form .fg-half:nth-child(2) {
+    margin-left: 0;
+  }
+}
+
+.content form .fg-all {
+  width: 100%;
+}
+
+.content button {
+  outline: none;
+  background-color: #fff;
+  margin: 0 auto;
+  border: 2px solid blueviolet;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: blueviolet;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  padding: 10px 15px;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+@media (max-width: 768px) {
+  .content button {
+    width: 90%;
+  }
+}
+
+.content button:hover {
+  background-color: blueviolet;
+  color: white;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.cssload-loader {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border: 4px solid black;
+  animation: cssload-loader 2.3s infinite ease;
+  -o-animation: cssload-loader 2.3s infinite ease;
+  -ms-animation: cssload-loader 2.3s infinite ease;
+  -webkit-animation: cssload-loader 2.3s infinite ease;
+  -moz-animation: cssload-loader 2.3s infinite ease;
+}
+
+.cssload-loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: black;
+  animation: cssload-loader-inner 2.3s infinite ease-in;
+  -o-animation: cssload-loader-inner 2.3s infinite ease-in;
+  -ms-animation: cssload-loader-inner 2.3s infinite ease-in;
+  -webkit-animation: cssload-loader-inner 2.3s infinite ease-in;
+  -moz-animation: cssload-loader-inner 2.3s infinite ease-in;
+}
+
+@keyframes cssload-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes cssload-loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+
+@-webkit-keyframes cssload-loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+/*# sourceMappingURL=style-contact.css.map */

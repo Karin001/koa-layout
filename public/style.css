@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.card{
+  margin:20px auto;  
+  width: 400px;
+  box-shadow: 2px 5px 10px 4px rgba(0, 0, 0, .2);
+  text-align: center;
+}
+.card div{
+
+}
+/*# sourceMappingURL=style.css.map */

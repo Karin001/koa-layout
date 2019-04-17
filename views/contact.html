@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style-contact.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="con">
+            <div class="logo"><img src="" alt=""></div>
+            <div class="tool">
+                <div class="hint">
+                    <div class="corner"></div>
+                    <div class="moji"></div>
+                </div>
+                <div class="icon" id="reset">
+                    <svg class="svg-inline--fa fa-undo-alt fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="undo-alt"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M255.545 8c-66.269.119-126.438 26.233-170.86 68.685L48.971 40.971C33.851 25.851 8 36.559 8 57.941V192c0 13.255 10.745 24 24 24h134.059c21.382 0 32.09-25.851 16.971-40.971l-41.75-41.75c30.864-28.899 70.801-44.907 113.23-45.273 92.398-.798 170.283 73.977 169.484 169.442C423.236 348.009 349.816 424 256 424c-41.127 0-79.997-14.678-110.63-41.556-4.743-4.161-11.906-3.908-16.368.553L89.34 422.659c-4.872 4.872-4.631 12.815.482 17.433C133.798 479.813 192.074 504 256 504c136.966 0 247.999-111.033 248-247.998C504.001 119.193 392.354 7.755 255.545 8z"></path>
+                    </svg>
+                </div>
+                <a href="/">
+                    <div class="icon" id="close">
+                        <svg class="svg-inline--fa fa-times fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="times"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                            <path fill="currentColor" d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"></path>
+                        </svg>
+
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+    </header>
+    <div class="avatar">
+        <img src="./assets/avatar.svg" alt="">
+    </div>
+    <section class="content">
+        <div class="thanks">
+            <p>
+                Thanks for taking the time to reach out. What can I do for you today?
+            </p>
+        </div>
+        <form>
+            <div class="fg fg-half">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="fg fg-half">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="fg fg-all">
+                <label for="message">Message</label>
+                <textarea name="" id="message" cols="30" rows="10" required></textarea>
+            </div>
+            <button id="submitBtn"> Submit
+                <span id="loading" style="display:none" class="cssload-loader"><span class="cssload-loader-inner"></span></span>
+            </button>
+            
+        </form>
+        <h2 id="sendHint"></h2>
+    </section>
+
+</body>
+<script>
+    var resetBtn = document.querySelector('#reset')
+    var closeBtn = document.querySelector('#close')
+    var hintBox = document.querySelector('.hint')
+    var hintMoji = document.querySelector('.moji')
+    var fcName = document.querySelector('#name')
+    var fcEmail = document.querySelector('#email')
+    var fcMessage = document.querySelector('#message')
+    var submit = document.querySelector('form')
+    var submitBtn = document.querySelector('#submitBtn')
+    var loading = document.querySelector('#loading')
+    var sendHInt = document.querySelector('#sendHint')
+    const ar = [resetBtn, closeBtn]
+    ar.forEach(element => {
+        element.addEventListener('mouseenter', function (event) {
+            hintMoji.innerText = element === resetBtn ? 'Reset' : 'Close'
+            this.appendChild(hintBox)
+            hintBox.style.top = "100%"
+            hintBox.style.display = "block"
+
+
+        })
+        element.addEventListener('mouseleave', function (event) {
+            hintBox.style.display = "none"
+        })
+    });
+    resetBtn.addEventListener('click', function () {
+        const fg = [fcName, fcEmail, fcMessage]
+        fg.forEach(ele => {
+            ele.value = ''
+        })
+    })
+    submit.addEventListener('submit', function (event) {
+        event.preventDefault()
+        submitBtn.disabled = "disabled";
+        loading.style.display = 'block'
+        const data = {
+            name: fcName.value,
+            email: fcEmail.value,
+            message: fcMessage.value
+        }
+        console.log('haha', data)
+        fetch('/sendMail', {
+            method: 'post',
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+            .then(res => {
+                loading.style.display="none"
+                submit.style.display="none"
+                if(res && res.success && res.success==='ok'){
+                    sendHInt.innerHTML = "thanks for sending！"
+                } else{
+                    sendHInt.innerHTML = "something went wrong please try again"
+                }
+            })
+    })
+</script>
+
+</html>
