@@ -111,8 +111,12 @@
             message: fcMessage.value
         }
         console.log('haha', data)
-        fetch('/sendMail', {
+        fetch('/api/userInfo/upload', {
             method: 'post',
+
+            headers:{
+                'content-type': 'application/json'
+            },
             body: JSON.stringify(data)
         }).then(res => res.json())
             .then(res => {

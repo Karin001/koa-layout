@@ -17,6 +17,8 @@
     "koa-body": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.5.1"
+    "mongoose": "^5.5.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   }
 }
